@@ -1,0 +1,33 @@
+# crear entorno virtual
+    -py -m venv venv
+
+
+#activar entorno virtual
+    -source venv/Scripts/activate    // para linux o terminal linux o mac
+    -.\venv\Scripts\activate         // para el cmd o powershell
+
+
+#instalar Django
+    - pip install django==5.0       // para linux o terminal linux o mac
+
+
+#crear proyecto
+        -django-admin startproject controldecasos
+
+# crear migracion de tablas
+        -py controldecasos/manage.py makemigrations  // para linux o terminal linux    
+
+
+#migrar las tablas
+        -py controldecasos/manage.py migrate  //para linux o terminal linux 
+
+#crear usuario admin
+        -py controldecasos/manage.py createsuperuser
+
+
+#correr en navegador
+    -py controldecasos/manage.py runserver (ctrl + c para detener el server)
+
+
+#añadir archivos al repositorio
+    -git add .
