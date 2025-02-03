@@ -11,7 +11,9 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 urlpatterns = [
-
+        #se encarga de que funcione el login  
+     # path( 'accounts/', include('django.contrib.auth.urls'))
+      #
     # path('', views.index, name="index"),
     # path('', TemplateView.as_view(template_name='index.html'), name="home"),
     # path('', views.MainP.as_view(), name="main"),

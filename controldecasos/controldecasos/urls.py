@@ -18,13 +18,14 @@ from django.urls import path, include, re_path
 from django.views.static import serve
 from . import settings
 from django.conf.urls.static import static
+from casos import views
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls, name='admin'),
-    path('', include('casos.urls')),
-    path('usuarios/', include('usuarios.urls')),
-
+    #path('admin/', admin.site.urls, name='admin'),
+    #path('', include('casos.urls')),
+    #path('usuarios/', include('usuarios.urls')),
+    path('formulario', views.formulario, name='formulario')
     
     #url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}), 
     #url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 

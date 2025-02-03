@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from controldecasos import Usuarioforms  
 
 # Create your views here.
 def index(request):
@@ -6,3 +7,13 @@ def index(request):
         "parametro": "Esteban",
     }
     return render(request, "index.html", context)
+
+def formulario(request):
+    if request.method == 'POST':
+            form = Usuarioforms(request.POST)
+            if form.is_valid():
+                form.save()
+    else: 
+        form = Usuarioforms()
+        return render(request, 'login.html', {'form': form})
+                    
