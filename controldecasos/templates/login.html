@@ -6,7 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+    
     <form action="" method="POST">
+        {% csrf_token %}
         <input type="text" placeholder="Ingresa nombre de usuario"> 
         <select name="tipouser" id="">
              <option value="1">Tecnico</option>

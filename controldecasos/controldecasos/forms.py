@@ -1,8 +1,8 @@
 from django import forms
-from usuarios import TipoUser  
+from usuarios.models import TipoUser  
 
 class Usuarioforms(forms.ModelForm):
-    class meta:
+    class Meta:
         model = TipoUser
         fields = [
             'id',
