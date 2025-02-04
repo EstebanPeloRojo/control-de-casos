@@ -79,12 +79,11 @@ WSGI_APPLICATION = 'controldecasos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'django_mariadb',
-        'USER': 'root',
-        'PASSWORD': 'root',
+        'USER' : 'root',
         'HOST': 'localhost',
-        'PORT': '33065',
+        'PORT': '33065'
     }
 }
 

@@ -31,3 +31,7 @@
 
 #añadir archivos al repositorio
     -git add .
+
+
+#instala el modulo para conexion de mysql con el framework
+    -pip install mysqlclient
