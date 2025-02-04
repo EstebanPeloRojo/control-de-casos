@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from controldecasos import Usuarioforms  
+from controldecasos.forms import Usuarioforms  
 
 # Create your views here.
 def index(request):

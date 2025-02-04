@@ -12,6 +12,7 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
 
+    path('formulario', views.formulario, name='formulario')
     #path('', views.index, name="index"),
     # path('', TemplateView.as_view(template_name='index.html'), name="home"),
     # path('', views.MainP.as_view(), name="main"),

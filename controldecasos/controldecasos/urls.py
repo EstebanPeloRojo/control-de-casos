@@ -22,11 +22,12 @@ from casos import views
 
 
 urlpatterns = [
-    #path('admin/', admin.site.urls, name='admin'),
+    path('admin/', admin.site.urls, name='admin'),
+    path('', include('usuarios.urls')),
+    path('casos/', include('casos.urls')),
     #path('', include('casos.urls')),
-    #path('usuarios/', include('usuarios.urls')),
-    path('formulario', views.formulario, name='formulario')
     
+    # path('formulario', views.formulario, name='formulario') esta linea no va aca 
     #url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}), 
     #url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
