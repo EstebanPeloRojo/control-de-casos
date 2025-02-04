@@ -1,12 +1,16 @@
 from django.shortcuts import render
 from controldecasos.forms import Usuarioforms  
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-def index(request):
+@login_required
+def casosTemplate(request):
     context = {
         "parametro": "Esteban",
     }
-    return render(request, "index.html", context)
+    
+    return render(request, "casos/casos.html", context)
+
 
 def formulario(request):
     if request.method == 'POST':
