@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'usuarios',
     'casos',
+    'rest_framework',
      
 ]
 
@@ -91,7 +92,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'es-co'
 
-TIME_ZONE = 'America/bogota'
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 
