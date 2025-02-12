@@ -11,6 +11,12 @@ def casosTemplate(request):
     
     return render(request, "casos/casos.html", context)
 
+def CrearCaso(request):
+    return render(request, 'casos/CrearCaso.html')
+
+def prueba(request):
+    #pass
+    return render(request, 'casos/prueba.html',)
 
 def formulario(request):
     if request.method == 'POST':
