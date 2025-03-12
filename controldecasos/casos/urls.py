@@ -13,7 +13,8 @@ from django.views.generic import TemplateView
 urlpatterns = [
 
     path('', views.casosTemplate, name='formulario'),
-    path('crearcaso/', views.crearsolicitud_soporte, name="crearcaso" )
+    path('crearcaso/', views.crearsolicitud_soporte, name="crearcaso" ),
+    path('borrar/<int:pk>/', views.borrarregistro, name='borrar_registro'),
     #path('', views.index, name="index"),
     # path('', TemplateView.as_view(template_name='index.html'), name="home"),
     # path('', views.MainP.as_view(), name="main"),

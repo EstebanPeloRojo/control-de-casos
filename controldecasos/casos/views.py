@@ -5,12 +5,12 @@ from .models import SolicitudSoporte
 from .forms import SolicitudSoporteForm
 # Create your views here.
 @login_required
-def casosTemplate(request,id):
-    vercaso = SolicitudSoporte.objects.get(id=0)
+def casosTemplate(request): 
     peticion = SolicitudSoporte.objects.all() 
     context = {
         "parametro": peticion,
-        "parametro2": vercaso,
+        
+      
     }
    
     return render(request, "casos/casos.html", context, )
