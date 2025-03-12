@@ -6,7 +6,7 @@ from .models import SolicitudSoporte
 class SolicitudSoporteAdmin(admin.ModelAdmin):
     list_display= [
         'ticket',
-        'fecha_creacion',
+        
         'caso_usuario',
         'incidencia',
         'descripcion',

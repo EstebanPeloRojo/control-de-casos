@@ -1,7 +1,6 @@
 from django.shortcuts import render,redirect
 from controldecasos.forms import Usuarioforms  
 from django.contrib.auth.decorators import login_required
-<<<<<<< HEAD
 
 
 
@@ -10,26 +9,25 @@ from rest_framework.response import Response
 from rest_framework import authentication, permissions
 
 
-from .models import SolicitudSoporte
+# from .models import SolicitudSoporte
 
 from .serializers import SolicitudSoporteSerializer
 
-
-
-
-
-=======
 from .models import SolicitudSoporte
 from .forms import SolicitudSoporteForm
->>>>>>> 7c49c3710f3e341d479159b45f08216b50d6161b
+
+from rich.console import Console
+console=Console()
+
+
 # Create your views here.
 @login_required
-def casosTemplate(request,id):
-    vercaso = SolicitudSoporte.objects.get(id=0)
+def casosTemplate(request):
+    # vercaso = SolicitudSoporte.objects.get(id=0)
     peticion = SolicitudSoporte.objects.all() 
     context = {
         "parametro": peticion,
-        "parametro2": vercaso,
+        # "parametro2": vercaso,
     }
    
     return render(request, "casos/casos.html", context, )
@@ -57,8 +55,18 @@ class Casos(APIView):
     # permission_classes = [permissions.IsAdminUser]
 
     def get(self, request, format=None):
-        
-        return Response({"ok" : "ok"})
+
+        console.log(request.data)
+        console.log(request.query_params)
+
+        id=request.query_params.get('id')
+        console.log(id)
+
+        ticket = SolicitudSoporte.objects.filter(ticket=id).values()
+
+        console.log(ticket)
+
+        return Response(ticket[0])
 
 
 

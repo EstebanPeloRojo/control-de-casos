@@ -12,6 +12,10 @@
     <title>Control de casos</title>
 </head>
 <body>
+
+    <div id="container" class="contain-ventEmergente">
+        
+    </div>
     
     {% include 'header.html' %}
     <div class="container-fluid mt-3">
@@ -22,9 +26,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="{% url "formulario" %}">Inicio</a>
                         </li>
-                        <li class="nav-item">
+                        {% comment %} <li class="nav-item">
                             <a class="nav-link" href="{% url "CrearCaso" %}">Casos</a>
-                        </li>
+                        </li> {% endcomment %}
                         <li class="nav-item">
                             <a class="nav-link" href="#">Reportes</a>
                         </li>
