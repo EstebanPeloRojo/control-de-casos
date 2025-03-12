@@ -1,0 +1,5 @@
+Django==5.0
+djangorestframework
+django-environ==0.8
+mysqlclient
+rich

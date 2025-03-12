@@ -10,21 +10,26 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 #import environ
+import environ
 import os
-from pathlib import Path
+
+
+env = environ.Env()
+environ.Env.read_env()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-15)qr61*ky=fy8+jbr05_%@02bx^=3rue-+gu5_x5gl14oly_5'
+SECRET_KEY = env.str('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.str('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
@@ -40,8 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'usuarios',
     'casos',
-    
-     
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -81,11 +85,11 @@ WSGI_APPLICATION = 'controldecasos.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_mariadb',
-        'USER' : 'root',
-        'PASSWORD': 'root',
+        'NAME': env.str('NAME_DB'),
+        'USER' : env.str('USER_DB'),
+        'PASSWORD': env.str('PASS_DB'),
         'HOST': 'localhost',
-        'PORT': '33065'
+        'PORT': env.str('PORT')
     }
 }
 
@@ -93,7 +97,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'es-co'
 
-TIME_ZONE = 'America/bogota'
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 
