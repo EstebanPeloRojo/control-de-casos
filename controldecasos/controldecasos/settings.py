@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'usuarios',
     'casos',
     'rest_framework',
-     
 ]
 
 MIDDLEWARE = [
@@ -80,9 +79,10 @@ WSGI_APPLICATION = 'controldecasos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django_mariadb',
         'USER' : 'root',
+        'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '33065'
     }

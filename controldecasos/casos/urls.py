@@ -14,8 +14,10 @@ urlpatterns = [
 
     path('', views.casosTemplate, name='formulario'),
     path('prueba/', views.prueba, name='prueba'),
-    path('crearcaso', views.CrearCaso, name="CrearCaso"),
+    # path('crearcaso', views.CrearCaso, name="CrearCaso"),
+    path('crearcaso/', views.crearsolicitud_soporte, name="crearcaso" ),
     path('casos/', views.Casos.as_view(), name="casos"),
+    
     #path('', views.index, name="index"),
     # path('', TemplateView.as_view(template_name='index.html'), name="home"),
     # path('', views.MainP.as_view(), name="main"),

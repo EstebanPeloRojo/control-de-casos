@@ -10,3 +10,9 @@ class TipoUser(models.Model):
         id = models.AutoField(primary_key=True)
         usuario = models.ForeignKey(User, verbose_name=(""), on_delete=models.CASCADE)
         tipo = models.CharField(max_length=20, choices=USER_CHOICES,default=2)
+        
+        
+
+
+    
+
