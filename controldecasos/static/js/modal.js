@@ -19,8 +19,10 @@ function modalHtml (titulo, data){
           <button type="button" class="btn-close" id="closeBtnEquis" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <h4>Ticket: ${data.ticket}</h4>
+          <p>Ticket: ${data.ticket}</p>
+          <p> Solicitado por: ${data.caso_usuario}
           <p> Incidencia: ${data.incidencia} </p>
+          <p> Fecha: ${data.creado_en}</p>
           <p> Estado: ${data.estado} </p>
         </div>
         <div class="modal-footer">
@@ -52,7 +54,7 @@ modalButtons.forEach(element => {
 
 
         // insertar html antes del div container
-        container.insertAdjacentHTML('beforebegin', modalHtml("modal daniel", data));
+        container.insertAdjacentHTML('beforebegin', modalHtml('modal daniel', data));
 
         // llamamos el container del modal desde el dom
         const modalContainer = document.querySelector("#modalContainer")

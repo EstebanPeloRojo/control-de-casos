@@ -22,21 +22,12 @@ console=Console()
 
 # Create your views here.
 @login_required
-<<<<<<< HEAD
-def casosTemplate(request): 
-    peticion = SolicitudSoporte.objects.all() 
-    context = {
-        "parametro": peticion,
-        
-      
-=======
 def casosTemplate(request):
     # vercaso = SolicitudSoporte.objects.get(id=0)
     peticion = SolicitudSoporte.objects.all() 
     context = {
         "parametro": peticion,
         # "parametro2": vercaso,
->>>>>>> 7246f6909bda55bbf219f8c681bf4b87a1deeb5f
     }
    
     return render(request, "casos/casos.html", context, )
@@ -47,6 +38,7 @@ def CrearCaso(request):
 def prueba(request):
     #pass
     return render(request, 'casos/prueba.html',)
+
 
 def formulario(request):
     if request.method == 'POST':
@@ -90,11 +82,14 @@ class Casos(APIView):
         return Response({"ok" : "i made a post"})
                     
 
+@login_required
 def crearsolicitud_soporte(request):
     if request.method == 'POST':
         form = SolicitudSoporteForm(request.POST)
         if form.is_valid():
-            form.save()
+            registro = form.save(commit=False)
+            registro.caso_usuario = request.user
+            registro.save()
             return redirect('formulario')
     else:
         form = SolicitudSoporteForm()
