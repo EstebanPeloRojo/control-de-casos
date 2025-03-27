@@ -1,27 +1,53 @@
 {% extends "index.html" %}
 
 {% block container %}
-<form method="post">
-    {% csrf_token %}
-    <label for="">Creacion de Caso</label><br>
+
+<!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modalcaso" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         sdfsf ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!--div>
+    <form method="post">
+        {% csrf_token %}
+        <label for="">Creacion de Caso</label><br>
 
     
 
-    <div class="col">
+     <div class="col">
         <input type="text" class="w-50 form-control" name="incidencia" id="incidencia" placeholder="Incidencia"><br>
-    </div>
+     </div>
 
     <div class="col">
         <input type="text" class="w-50 form-control" name="descripcion" id="descripcion" placeholder="Descripcion"><br>
     </div>
-    <select class="w-50 form-select" name="estado" id="estado"> 
-        <option value="" disabled selected>Estado </option>
-        <option value="pendiente">pendiente</option>
-        <option value="en_proceso">en proceso</option>
-        <option value="resuelto">resuelto</option>
-    </select> <br>
-    <input type="submit"  class="btn btn-outline-success btn-regus" value="Guardar">
-</form>
+        <select class="w-50 form-select" name="estado" id="estado"> 
+            <option value="" disabled selected>Estado </option>
+            <option value="pendiente">pendiente</option>
+            <option value="en_proceso">en proceso</option>
+            <option value="resuelto">resuelto</option>
+     </select> <br>
+         <input type="submit"  class="btn btn-outline-success btn-regus" value="Guardar">
+    </form>
 </div>    
+
 
 {% endblock container %}

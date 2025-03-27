@@ -1,14 +1,10 @@
-// $('#exampleModal').on('show.bs.modal', function(event) {
-//     var button = $(event.relatedTarget);
-//     var ticket = button.data('ticket');
-//     $.ajax({
-//       type: 'GET',
-//       url: 'casos/' + ticket,
-//       success: function(data) {
-//         $('#exampleModal .modal-body').html(data);
-//       }
-//     });
-//   });
+$('#tablaCaso').DataTable( {
+    
+})
 
-// console.log('funciona la conexion javascript a django');
 
+
+document.getElementById('botoncasos').addEventListener('click', function() {
+    var modal = new bootstrap.Modal(document.getElementById('modalcaso'));
+    modal.show();
+  });
