@@ -38,3 +38,11 @@ class SolicitudSoporte(models.Model):
         
     def __str__(self):
         return str(self.ticket)
+    
+    
+# class FeedbackTecnico(models.Model):
+#     id = models.AutoField(primary_key=True)
+#     descripcion = models.TextField(max_length=255)
+#     tecnico = models.CharField(max_length=255)
+#     ticket = models.ForeignKey(SolicitudSoporte, on_delete=models.DO_NOTHING, related_name='feedback_tecnico')
+
