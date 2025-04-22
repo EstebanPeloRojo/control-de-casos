@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from controldecasos.forms import Usuarioforms  
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 
 
 
@@ -89,30 +90,40 @@ class Casos(APIView):
             return Response({"ok" : "i made a post"}, status=status.HTTP_201_CREATED)
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+    def delete(self, request, format=None):
+        console.log(request.data)
+        id = request.data.get('id')
+        console.log(id)
+
+        caso = SolicitudSoporte.objects.get(ticket=id)
+        caso.delete()
+        
+        return Response({"ok" : "deleted"}, status=status.HTTP_204_NO_CONTENT)
                     
 
 @login_required
 def crearsolicitud_soporte(request):
+    console.log(request.POST)
     if request.method == 'POST':
-
-        formCopy = request.POST.copy()
-        formCopy['incidencia'] = TipoIncidencia.objects.get(id=request.POST['incidencia'])
         
-
-        form = SolicitudSoporteForm(formCopy)
-        
+        form = SolicitudSoporteForm(request.POST)
 
         if form.is_valid():
             registro = form.save(commit=False)
             registro.caso_usuario = request.user
-
             registro.save()
-            return redirect('formulario')
+            
+            return JsonResponse({"ok" : "incidencia creada"}, status=201)
+            
 
         # Imprimir errores si los hay
         for field in form:
                 if field.errors:
                     print(f"Errores en {field.name}: {field.errors}")
+
+        console.log("no lo cogio")
         
     else:
         form = SolicitudSoporteForm()

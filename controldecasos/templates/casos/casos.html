@@ -70,7 +70,7 @@
                             >
                                 ver caso
                             </button>
-                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                            <button class="btn btn-danger btn-sm" id="eliminarIncidente">Eliminar</button>
                         </td>
                     </tr>
                     {% endfor %}
@@ -80,7 +80,8 @@
     </div>
 </div>
 
-
+<script  src="{% static 'js/getCookie.js' %}"></script>
+<script  src="{% static 'js/sweetAlertFunctions.js' %}"></script>
 <script  src="{% static 'js/casos.js' %}"></script>
 <script  src="{% static 'js/modal.js' %}"></script>
 

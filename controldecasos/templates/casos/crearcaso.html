@@ -11,14 +11,15 @@
         <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Peticion Nueva</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        {% comment %} method="post" action="crearcaso/"  {% endcomment %}
         </div>
-        <form method="post" action="crearcaso/">
+        <form id="formCrearCaso">
             {% comment %} action="{% url 'casos' %}" {% endcomment %}
             <div class="modal-body">
                 {% csrf_token %}
                 <div class="col">
                     {% comment %} <input type="text" class="w-50 form-control" name="incidencia" id="incidencia" placeholder="Incidencia"><br> {% endcomment %}
-                    <select class="w-50 form-select mb-3" name="incidencia" id="incidencia" placeholder="Incidencia">
+                    <select class="w-50 form-select mb-3" name="incidencia" id="incidencia" placeholder="Incidencia" >
                         <option value="" selected >-- Seleccione tipo de incidencia --</option>
                         {% for tipocaso in tiposDeCasos %}
                             <option value="{{ tipocaso.id }}">{{ tipocaso.nombre }}</option>
@@ -27,7 +28,7 @@
                 </div>
         
                 <div class="col">
-                    <textarea type="text" class="w-50 form-control" name="descripcion" id="descripcion" placeholder="Descripcion" rows="10" cols="50"> </textarea><br>
+                    <textarea type="text" class="w-50 form-control" name="descripcion" id="descripcion" placeholder="Descripcion" rows="10" cols="50" ></textarea><br>
                 </div>
                 {% comment %} <select class="w-50 form-select" name="estado" id="estado"> 
                     <option value="" disabled selected>Estado </option>
