@@ -17,7 +17,7 @@ class SolicitudSoporteForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['estado'].widget = forms.Select(choices=[
             ('pendiente', 'Pendiente'),
-            ('en_proceso', 'En proceso'),
+            ('En proceso', 'En proceso'),
             ('resuelto', 'Resuelto'),
         ])
         

@@ -93,4 +93,4 @@ def crearsolicitud_soporte(request):
             return redirect('formulario')
     else:
         form = SolicitudSoporteForm()
-    return render(request, 'casos/crearcaso.html', {'form': form})
+    return render(request, 'casos/casos.html', {'form': form})

@@ -11,7 +11,7 @@ class SolicitudSoporte(models.Model):
     creado_en = models.DateTimeField(auto_now_add=timezone.now) 
     ESTADOS_CHOICES = [
         ('pendiente', 'Pendiente'),
-        ('en_proceso', 'En proceso'),
+        ('En proceso', 'En proceso'),
         ('resuelto', 'Resuelto'),
     ]
     estado = models.CharField(max_length=20, choices=ESTADOS_CHOICES,default='pendiente' )
