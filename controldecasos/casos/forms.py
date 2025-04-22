@@ -9,15 +9,15 @@ class SolicitudSoporteForm(forms.ModelForm):
                   
                   'incidencia',
                   'descripcion',
-                  'estado'          
+                #   'estado'          
                   )
-        exclude = ('caso_usuario',)   
+        exclude = ('caso_usuario', 'estado')   
         
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['estado'].widget = forms.Select(choices=[
-            ('pendiente', 'Pendiente'),
-            ('En proceso', 'En proceso'),
-            ('resuelto', 'Resuelto'),
-        ])
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.fields['estado'].widget = forms.Select(choices=[
+    #         ('pendiente', 'Pendiente'),
+    #         ('En proceso', 'En proceso'),
+    #         ('resuelto', 'Resuelto'),
+    #     ])
         

@@ -3,6 +3,7 @@
 {% block container %}
 
 <!-- Button trigger modal -->
+ 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg ">
@@ -11,22 +12,29 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Peticion Nueva</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form method="post">
+        <form method="post" action="crearcaso/">
+            {% comment %} action="{% url 'casos' %}" {% endcomment %}
             <div class="modal-body">
                 {% csrf_token %}
                 <div class="col">
-                    <input type="text" class="w-50 form-control" name="incidencia" id="incidencia" placeholder="Incidencia"><br>
+                    {% comment %} <input type="text" class="w-50 form-control" name="incidencia" id="incidencia" placeholder="Incidencia"><br> {% endcomment %}
+                    <select class="w-50 form-select mb-3" name="incidencia" id="incidencia" placeholder="Incidencia">
+                        <option value="" selected >-- Seleccione tipo de incidencia --</option>
+                        {% for tipocaso in tiposDeCasos %}
+                            <option value="{{ tipocaso.id }}">{{ tipocaso.nombre }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
         
                 <div class="col">
-                    <input type="text" class="w-50 form-control" name="descripcion" id="descripcion" placeholder="Descripcion"><br>
+                    <textarea type="text" class="w-50 form-control" name="descripcion" id="descripcion" placeholder="Descripcion" rows="10" cols="50"> </textarea><br>
                 </div>
-                <select class="w-50 form-select" name="estado" id="estado"> 
+                {% comment %} <select class="w-50 form-select" name="estado" id="estado"> 
                     <option value="" disabled selected>Estado </option>
                     <option value="pendiente">pendiente</option>
                     <option value="En proceso">en proceso</option>
                     <option value="resuelto">resuelto</option>
-                </select> <br>
+                </select> <br> {% endcomment %}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

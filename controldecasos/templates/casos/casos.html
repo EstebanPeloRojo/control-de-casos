@@ -12,7 +12,7 @@
 
 <!-- Modal -->
 
-
+{% include 'casos/crearcaso.html' %}
 
 
 <div class="container-fluid mt-3">
@@ -35,7 +35,7 @@
 
         
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">  
-        <button type="button" class="btn btn-primary" style="background-color:rgb(126, 28, 146)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button id="crearCaso" type="button" class="btn btn-primary" style="background-color:rgb(126, 28, 146)" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Nueva peticion 
         </button>
             <h2 class="mt-3">Novedades</h2>
@@ -80,6 +80,8 @@
     </div>
 </div>
 
+
+<script  src="{% static 'js/casos.js' %}"></script>
 <script  src="{% static 'js/modal.js' %}"></script>
 
 
