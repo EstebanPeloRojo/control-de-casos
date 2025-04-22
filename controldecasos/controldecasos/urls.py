@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', include('usuarios.urls')),
     path('casos/', include('casos.urls')),
+    path('api-auth/', include('rest_framework.urls')),
     #path('', include('casos.urls')),
     
     # path('formulario', views.formulario, name='formulario') esta linea no va aca 
