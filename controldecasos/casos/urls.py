@@ -16,7 +16,7 @@ urlpatterns = [
     
     path('prueba/', views.prueba, name='prueba'),
     # path('crearcaso', views.CrearCaso, name="CrearCaso"),
-    #path('crearcaso/', views.crearsolicitud_soporte, name="crearcaso" ),
+    path('crearcaso/', views.crearsolicitud_soporte, name="crearcaso" ),
     path('casos/', views.Casos.as_view(), name="casos"),
     
     #path('', views.index, name="index"),
