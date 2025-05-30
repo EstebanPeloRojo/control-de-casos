@@ -4,7 +4,6 @@ from django.db.models import DO_NOTHING
 # Create your models here.
 #modelo de la tabla de las peticiones
 
-
 class TipoIncidencia(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=100, unique=True)
@@ -18,13 +17,16 @@ class TipoIncidencia(models.Model):
         return self.nombre
 
 
+
+
 class SolicitudSoporte(models.Model): 
    
     ticket = models.AutoField(primary_key=True)
     caso_usuario =models.CharField(max_length=200)
     incidencia = models.ForeignKey(TipoIncidencia, on_delete=DO_NOTHING, related_name='tipo_incidencia')
     descripcion = models.TextField(max_length=255)
-    creado_en = models.DateTimeField(auto_now_add=timezone.now) 
+    creado_en = models.DateTimeField(auto_now_add=timezone.now)
+    #FeedbackTecnico = models.ForeignKey()
     ESTADOS_CHOICES = [
         ('pendiente', 'Pendiente'),
         ('En proceso', 'En proceso'),
@@ -40,9 +42,11 @@ class SolicitudSoporte(models.Model):
         return str(self.ticket)
     
     
-# class FeedbackTecnico(models.Model):
-#     id = models.AutoField(primary_key=True)
-#     descripcion = models.TextField(max_length=255)
-#     tecnico = models.CharField(max_length=255)
-#     ticket = models.ForeignKey(SolicitudSoporte, on_delete=models.DO_NOTHING, related_name='feedback_tecnico')
+
+class FeedbackTecnico(models.Model):
+    id = models.AutoField(primary_key=True)
+    descripcion = models.TextField(max_length=255)
+    tecnico = models.CharField(max_length=255)
+    fecha_creacion = models.DateTimeField(auto_now_add=timezone.now)
+    ticket = models.ForeignKey(SolicitudSoporte, on_delete=models.DO_NOTHING, related_name='feedback_tecnico')
 

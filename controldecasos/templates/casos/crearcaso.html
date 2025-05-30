@@ -21,9 +21,13 @@
                     {% comment %} <input type="text" class="w-50 form-control" name="incidencia" id="incidencia" placeholder="Incidencia"><br> {% endcomment %}
                     <select class="w-50 form-select mb-3" name="incidencia" id="incidencia" placeholder="Incidencia" >
                         <option value="" selected >-- Seleccione tipo de incidencia --</option>
+                        
+                        
                         {% for tipocaso in tiposDeCasos %}
-                            <option value="{{ tipocaso.id }}">{{ tipocaso.nombre }}</option>
+                        <option value="{{ tipocaso.id }}">{{ tipocaso.nombre }}</option>
                         {% endfor %}
+                        
+                        
                     </select>
                 </div>
         

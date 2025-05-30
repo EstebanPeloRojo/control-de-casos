@@ -12,18 +12,36 @@ function modalHtml (titulo, data){
         aria-labelledby="modalContainerLabel"
         aria-hidden="false"
     >
-     <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="modalContainerLabel">${titulo}</h1>
           <button type="button" class="btn-close" id="closeBtnEquis" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+
+        
+
         <div class="modal-body">
-          <p>Ticket: ${data.ticket}</p>
-          <p> Solicitado por: ${data.caso_usuario}
-          <p> Incidencia: ${data.incidencia} </p>
-          <p> Fecha: ${data.creado_en}</p>
-          <p> Estado: ${data.estado} </p>
+          <div class="row align-items-start">
+            <div class="col">
+              <p>Ticket: ${data.ticket}</p>
+            </div>
+            <div class="col">
+              <p> Solicitado por: ${data.caso_usuario}</p>
+            </div>
+            <div class="col">
+              <p> Descripcion: ${data.descripcion}</p>
+            </div>
+            <div class="col">
+              <p> Incidencia: ${data.incidencia_id} </p>
+            </div>
+            <div class="col">
+              <p> Fecha: ${data.creado_en}</p>
+            </div>
+            <div class="col">
+              <p> Estado: ${data.estado} </p>
+            </div>
+        </div
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" id="closeBtnButton" data-bs-dismiss="modal">Close</button>
@@ -54,7 +72,7 @@ modalButtons.forEach(element => {
 
 
         // insertar html antes del div container
-        container.insertAdjacentHTML('beforebegin', modalHtml('modal daniel', data));
+        container.insertAdjacentHTML('beforebegin', modalHtml('Incidencia', data));
 
         // llamamos el container del modal desde el dom
         const modalContainer = document.querySelector("#modalContainer")

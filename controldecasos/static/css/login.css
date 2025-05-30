@@ -1,123 +1,205 @@
-*{
+   /* RESET CSS - Elimina márgenes y paddings por defecto del navegador */
+   * {
     margin: 0;
     padding: 0;
-    box-sizing: 0;
-    color: #11101d;
+    box-sizing: border-box; /* Incluye padding y border en el cálculo del ancho/alto */
 }
 
-body{
-    background-color: #11101d;
-}
-
-section{
-    position: fixed;
-    height: 100%;
-    width: 100%;
-}
-
-.Login{
-
-    border-color: white solid 1px;
-}
-
-.negro{
-    position: fixed;
-    z-index: 5;
-    height: 100%;
-    width: 55%;
-    opacity:0.65;
-    clip-path: polygon(0 0, 0% 20%, 0 49%, 0 100%, 20% 100%, 53% 100%, 80% 100%, 100% 100%, 100% 77%, 100% 100%, 80% 1%, 34% 0);
-}
-
-.WMS{
-    position: absolute;
-    z-index: 10;
-    background: none;
-    top: 23%;
-    margin: 0;
-    padding: 0;
-    width: 48%;
-    left: 5%;
-}
-
-.text_wms{
-    position: absolute;
-    color: white;
-    top: 76%;
-    left: 25%;
-    background: none;
-    font-size: 400%;
-    opacity: 0.8;
-    font-family: 'Noto Sans Display', sans-serif;
+/* ESTILOS DEL BODY - Configuración general de la página */
+body {
+    font-family: 'Arial', sans-serif; /* Fuente principal */
+    background: linear-gradient(180deg, #8B5CF6 0%, #A855F7 25%,#F97316 75%); /* Fondo negro como respaldo */
+    height: 100vh; /* Altura completa de la ventana del navegador */
+    display: flex; /* Flexbox para centrar contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    overflow: hidden; /* Evita scroll bars innecesarias */
 }
 
 .Logo{
-    position: fixed;
-    left: 68% ;
-    width: 100px;
-    top: 15%;
-    font-family: "Poppins" , sans-serif;
+    justify-content: center;
+    align-items: center;
 }
 
-.alerta{
-    width: 100%;
-    position: relative;
-    margin-left: 50%;
-    margin: 10px;
+/* CONTENEDOR PRINCIPAL - Estructura base del layout */
+.container {
+    width: 100%; /* Ancho completo */
+    height: 100vh; /* Altura completa de la ventana */
+    display: flex; /* Flexbox para dividir en secciones */
+    position: relative; /* Permite posicionar elementos hijos absolutamente */
 }
 
-.alerta div{
-    width: 40%;
-    margin-left: 52%;
-}
-
-
-/* ------------------ */
-
-label{
-    display: none;
-}
-
-.form{
-    margin-top: 18%;
-    margin-left: 57%;
-}
-
-.form input{
-    position: static;
-    z-index: 20;
-    width: 70%;
-    height: 40px;
-    text-align: center;
-    margin-top: 0.5%;
-    border: rgb(192, 189, 189) solid 1px;
-    color: 11101d;
-    margin-top: 10px;
-}
-
-button{
-    z-index: 10;
-    position: relative;
+/* SECCIÓN DEL GRADIENTE - Lado izquierdo con colores */
+.gradient-section {
     
+    flex: 1; /* Toma todo el espacio disponible */
+    /* Gradiente diagonal con múltiples colores (púrpura → rosa → naranja → amarillo) */
+    background: linear-gradient(180deg, #8B5CF6 0%, #A855F7 25%,#f97316 75%);
+    position: relative; /* Para posicionar la forma orgánica */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
 }
 
-.btn-inises{
-    margin-top: 1%;
-    margin-left: 67%;
-    width: 10%;
+/* FORMA ORGÁNICA - Elemento decorativo que simula una curva */
+.organic-shape {
+    /*shape-outside: ellipse( 30% 50%);
+    position: absolute; /* Posicionamiento absoluto respecto al contenedor */
+    top: -2%;
+    right: -3%; /* Se extiende un poco fuera del contenedor */
+    width: 65%; /* Ancho del 70% */
+    height: 100%; /* Altura completa */
+    background: #ffffff; /* Color blanco */
+    border-radius: 50% 0 0 50%; /* Bordes redondeados solo en el lado izquierdo */
+    transform: skewX(-5deg); /* Inclina la forma ligeramente para darle dinamismo */
 }
 
-.btn-regus{
-    margin-left: 64.6%;
-    margin-top: 10px;
-    width: 15%;
+/* SECCIÓN DE LOGIN - Área del formulario */
+.login-section {
+    position: absolute; /* Posicionamiento absoluto para superponerse */
+    right: 0; /* Alineado a la derecha */
+    top: 0; /* Alineado arriba */
+    width: 50%; /* Ocupa la mitad derecha de la pantalla */
+    height: 100%; /* Altura completa */
+    background: #ffffff; /* Fondo blanco */
+    display: flex; /* Flexbox para centrar el formulario */
+    flex-direction: column; /* Organiza elementos en columna */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    padding: 2rem; /* Espaciado interno */
+    z-index: 10; /* Se asegura de estar por encima de otros elementos */
 }
 
+/* FORMULARIO DE LOGIN - Contenedor del formulario */
+.login-form {
+    width: 100%; /* Ancho completo disponible */
+    max-width: 350px; /* Ancho máximo para mantener proporciones */
+    text-align: center; /* Centra el texto */
+}
 
+/* TÍTULO PRINCIPAL */
+h1 {
+    font-size: 2rem; /* Tamaño de fuente grande */
+    font-weight: bold; /* Texto en negrita */
+    color: #333; /* Color gris oscuro */
+    margin-bottom: 3rem; /* Espaciado inferior */
+    letter-spacing: 1px; /* Espaciado entre letras para elegancia */
+    justify-content: center;
+}
 
+/* GRUPO DE INPUTS - Contenedor para cada campo */
+.input-group {
+    margin-bottom: 1.5rem; /* Espaciado entre campos */
+    position: relative; /* Para efectos adicionales si es necesario */
+}
 
+/* ESTILOS DE LOS INPUTS */
+input {
+    width: 100%; /* Ancho completo */
+    padding: 1rem 1.5rem; /* Espaciado interno cómodo */
+    border: 2px solid #e5e5e5; /* Borde gris claro */
+    border-radius: 50px; /* Bordes completamente redondeados */
+    font-size: 1rem; /* Tamaño de fuente legible */
+    outline: none; /* Elimina el outline por defecto del navegador */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+    background: #f8f9fa; /* Fondo gris muy claro */
+}
 
+/* ESTADO FOCUS DE LOS INPUTS - Cuando el usuario hace clic */
+input:focus {
+    border-color: #8B5CF6; /* Cambia el borde a púrpura */
+    background: #ffffff; /* Fondo blanco */
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1); /* Sombra púrpura suave */
+}
 
+/* PLACEHOLDER DE LOS INPUTS */
+input::placeholder {
+    color: #999; /* Color gris para el texto placeholder */
+}
 
+/* BOTÓN DE LOGIN */
+.login-btn {
+    width: 100%; /* Ancho completo */
+    padding: 1rem 2rem; /* Espaciado interno generoso */
+    background: linear-gradient(135deg, #8B5CF6, #A855F7); /* Gradiente púrpura */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 50px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+    font-weight: 600; /* Texto semi-negrita */
+    cursor: pointer; /* Cursor de mano al pasar por encima */
+    transition: all 0.3s ease; /* Transición suave */
+    margin-top: 1rem; /* Espaciado superior */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
 
+/* EFECTO HOVER DEL BOTÓN - Al pasar el mouse por encima */
+.login-btn:hover {
+    transform: translateY(-2px); /* Eleva el botón ligeramente */
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3); /* Sombra púrpura */
+    background: linear-gradient(135deg, #7C3AED, #9333EA); /* Gradiente más oscuro */
+}
+
+/* EFECTO ACTIVE DEL BOTÓN - Al hacer clic */
+.login-btn:active {
+    transform: translateY(0); /* Regresa a la posición original */
+}
+
+/* MEDIA QUERIES - DISEÑO RESPONSIVE PARA MÓVILES */
+@media (max-width: 768px) {
+    /* Oculta la forma orgánica en móviles */
+    .organic-shape {
+        display: none;
+    }
+    
+    /* Ajusta la sección de login para móviles */
+    .login-section {
+        width: 100%; /* Ocupa toda la pantalla */
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(168, 85, 247, 0.1));
+        backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado */
+    }
+    
+    /* Aplica el gradiente al contenedor en móviles */
+    .container {
+        background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 25%, #EC4899 50%, #F97316 75%, #EAB308 100%);
+    }
+    
+    /* Estilo especial del formulario en móviles */
+    .login-form {
+        background: rgba(255, 255, 255, 0.95); /* Fondo semi-transparente */
+        padding: 2rem; /* Espaciado interno */
+        border-radius: 20px; /* Bordes redondeados */
+        backdrop-filter: blur(10px); /* Efecto de vidrio */
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    }
+}
+
+/* ANIMACIÓN DE ENTRADA DEL FORMULARIO */
+.login-form {
+    animation: slideIn 0.8s ease-out; /* Aplica la animación slideIn */
+}
+
+/* DEFINICIÓN DE LA ANIMACIÓN SLIDEIN */
+@keyframes slideIn {
+    from {
+        opacity: 0; /* Comienza invisible */
+        transform: translateX(50px); /* Comienza desplazado a la derecha */
+    }
+    to {
+        opacity: 1; /* Termina completamente visible */
+        transform: translateX(0); /* Termina en su posición original */
+    }
+}
+
+/* EFECTO DECORATIVO EN LA SECCIÓN DEL GRADIENTE */
+.gradient-section::before {
+    content: ''; /* Crea un pseudo-elemento vacío */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Gradiente sutil blanco para dar profundidad */
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+    pointer-events: none; /* No interfiere con interacciones del usuario */
+}
 
