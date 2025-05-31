@@ -4,8 +4,8 @@ const collapseBoton = document.querySelectorAll("#seguimientoCaso")
 function collapseHtml(titulo,data)
 {
     const collapsecaso = `
-    <div class="collapse" id="collapseExample">
-        <div class="card card-body">
+    <tr class="collapse" id="collapseExample">
+        <td colspan="6" >
             <div class="row align-items-start">
             <div class="col">
               <p>Ticket: ${data.ticket}</p>
@@ -26,8 +26,8 @@ function collapseHtml(titulo,data)
               <p> Estado: ${data.estado} </p>
             </div>
         </div
-        </div>
-    </div>
+        </td>
+    </tr>
     `
     
     return collapsecaso
@@ -38,6 +38,7 @@ collapseBoton.forEach(element => {
     element.addEventListener('click', async function () {
         console.log(this)
         console.log(this.parentElement.parentElement.children[0].innerHTML)
+        const filaTabla = this.parentElement.parentElement
 
         const numeroTicket = this.parentElement.parentElement.children[0].innerHTML
 
@@ -50,7 +51,7 @@ collapseBoton.forEach(element => {
 
 
         // insertar html antes del div container
-        container.insertAdjacentHTML('beforebegin', collapseHtml('Incidencia', data));
+        filaTabla.insertAdjacentHTML('afterend', collapseHtml('Incidencia', data));
 
         // llamamos el container del modal desde el dom
         const collapsejs = document.querySelector("#collapseExample")
