@@ -6,7 +6,26 @@ function collapseHtml(titulo,data)
     const collapsecaso = `
     <div class="collapse" id="collapseExample">
         <div class="card card-body">
-            paspadapsdpasdpadpasdadpojsaop
+            <div class="row align-items-start">
+            <div class="col">
+              <p>Ticket: ${data.ticket}</p>
+            </div>
+            <div class="col">
+              <p> Solicitado por: ${data.caso_usuario}</p>
+            </div>
+            <div class="col">
+              <p> Descripcion: ${data.descripcion}</p>
+            </div>
+            <div class="col">
+              <p> Incidencia: ${data.incidencia_id} </p>
+            </div>
+            <div class="col">
+              <p> Fecha: ${data.creado_en}</p>
+            </div>
+            <div class="col">
+              <p> Estado: ${data.estado} </p>
+            </div>
+        </div
         </div>
     </div>
     `
@@ -40,27 +59,24 @@ collapseBoton.forEach(element => {
             collapsejs.remove();
         }
 
-        const closeBtnEquis = document.querySelector("#closeBtnEquis")
-        const closeBtnButton = document.querySelector("#closeBtnButton")
+        
+        const closeBtnButton = document.querySelector("#seguimientoCaso")
 
 
-        let myModal = new bootstrap.Modal(modalContainer,{
+        let myCollapse = new bootstrap.Collapse(collapsejs,{
             backdrop: "static",
             keyboard: false,
             focus: true,
         });
 
 
-        myModal.show()
+        myCollapse.show()
 
-        // evento para cerrar el modal con click
-        closeBtnEquis.addEventListener('click', () => {
-            removeModal()
-        })
+        
 
         // evento para cerrar el modal con click
         closeBtnButton.addEventListener('click', () => {
-            removeModal()
+            removeCollapse()
         })
 
     })
