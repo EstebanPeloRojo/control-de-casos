@@ -23,20 +23,11 @@ function ActualizarEstadoHtml(ticket)
             <label for="comentario">Feedback tecnico</label>
             <textarea class="form-control" name="comentario" id="comentario"></textarea>
 
-            <input type="submit" value="Aniadir feedback" class="btn btn-primary mt-3" >
+            <input type="submit" value="Añadir feedback" class="btn btn-primary mt-3" >
         </form>
         
     </div>
-    <div class="dropdown mt-3">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-        
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
+   
     `
     
     return html

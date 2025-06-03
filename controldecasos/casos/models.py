@@ -20,8 +20,8 @@ class TipoIncidencia(models.Model):
 
 
 class SolicitudSoporte(models.Model): 
-   
     ticket = models.AutoField(primary_key=True)
+    ticket_custom = models.IntegerField(null=True, blank=False)
     caso_usuario =models.CharField(max_length=200)
     incidencia = models.ForeignKey(TipoIncidencia, on_delete=DO_NOTHING, related_name='tipo_incidencia')
     descripcion = models.TextField(max_length=255)

@@ -7,6 +7,7 @@ class SolicitudSoporteSerializer(serializers.ModelSerializer):
         model = SolicitudSoporte
         fields = [
             'ticket',
+            'ticket_custom',
             'caso_usuario',
             'incidencia',
             'descripcion',

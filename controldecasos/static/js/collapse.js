@@ -5,7 +5,7 @@ function collapseHtml(titulo,data)
 {
     const collapsecaso = `
     <tr class="collapse" id="collapseExample">
-        <td colspan="6" >
+        <td colspan="6" class="card-body">
             <div class="row align-items-start">
             <div class="col">
               <p>Ticket: ${data.ticket}</p>
@@ -61,7 +61,7 @@ collapseBoton.forEach(element => {
         }
 
         
-        const closeBtnButton = document.querySelector("#seguimientoCaso")
+        //const closeBtnButton = document.querySelector("#seguimientoCaso")
 
 
         let myCollapse = new bootstrap.Collapse(collapsejs,{

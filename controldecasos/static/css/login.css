@@ -34,7 +34,7 @@ body {
     
     flex: 1; /* Toma todo el espacio disponible */
     /* Gradiente diagonal con múltiples colores (púrpura → rosa → naranja → amarillo) */
-    background: linear-gradient(180deg, #8B5CF6 0%, #A855F7 25%,#f97316 75%);
+    /*background: linear-gradient(180deg, #8B5CF6 0%, #A855F7 25%,#f97316 75%);*/
     position: relative; /* Para posicionar la forma orgánica */
     overflow: hidden; /* Oculta cualquier desbordamiento */
 }
@@ -199,7 +199,7 @@ input::placeholder {
     right: 0;
     bottom: 0;
     /* Gradiente sutil blanco para dar profundidad */
-    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+    /*background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%);*/
     pointer-events: none; /* No interfiere con interacciones del usuario */
 }
 

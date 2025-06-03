@@ -52,10 +52,19 @@
                 Nueva peticion 
             </button>
             <table id="tablaCaso" class="table table-striped">
+                <div class="row g-3">
+                    
+                    <select class="w-50 form-control " name="" id="busquedaEstado">
+                        <option value="" selected>Estados</option>
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en proceso">En proceso</option>
+                        <option value="resuelto">Resuelto</option>
+                    </select>
+                </div>
                 <thead>
                     
                     <tr>
-                        <th>Ticket</th>
+                        <th>ID</th>
                         <th>Usuario</th>
                         <th>Fecha de creacion</th>
                         <th>Incidencia</th>
@@ -82,8 +91,9 @@
                             >
                                 ver caso
                             </button>{% endcomment %}
+                            <button class="btn btn-success btn-sm" id="seguimientoCaso">Ver caso</button>
                             <button class ="btn btn-danger btn-sm" id="estadoCaso"  aria-controls="offcanvasExample" >Estados </button>  
-                            <button class="btn btn-success btn-sm" id="seguimientoCaso">Seguimiento</button>
+                            
                         </td>
                     </tr>
                     {% endfor %}
