@@ -4,19 +4,21 @@ from .models import SolicitudSoporte
 class SolicitudSoporteForm(forms.ModelForm):
     class Meta:
         model = SolicitudSoporte
+        
         fields = ( 
-                  'caso_usuario',
+                  
                   'incidencia',
+                  'ticket_custom',
                   'descripcion',
-                  'estado'
-                  
-                  
-                  )   
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['estado'].widget = forms.Select(choices=[
-            ('pendiente', 'Pendiente'),
-            ('en_proceso', 'En proceso'),
-            ('resuelto', 'Resuelto'),
-        ])
+                #   'estado'          
+                  )
+        exclude = ('caso_usuario', 'estado')   
+        
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.fields['estado'].widget = forms.Select(choices=[
+    #         ('pendiente', 'Pendiente'),
+    #         ('En proceso', 'En proceso'),
+    #         ('resuelto', 'Resuelto'),
+    #     ])
         

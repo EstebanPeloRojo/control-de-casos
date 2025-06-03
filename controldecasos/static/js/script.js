@@ -1,14 +1,14 @@
-// $('#exampleModal').on('show.bs.modal', function(event) {
-//     var button = $(event.relatedTarget);
-//     var ticket = button.data('ticket');
-//     $.ajax({
-//       type: 'GET',
-//       url: 'casos/' + ticket,
-//       success: function(data) {
-//         $('#exampleModal .modal-body').html(data);
-//       }
-//     });
-//   });
+let tabla = $('#tablaCaso').DataTable( {
+    order: [[ 1, 'asc' ]]
+})
 
-// console.log('funciona la conexion javascript a django');
+//$('#botonPeticion').click(function(event){
+  //  $('#modalCrearcaso').modal('show');
+//});
+
+ // Búsqueda por oficina (dropdown)
+$('#busquedaEstado').on('change', function() {
+    tabla.column(4).search(this.value).draw();
+});
+
 

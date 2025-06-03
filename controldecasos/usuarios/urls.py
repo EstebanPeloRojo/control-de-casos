@@ -16,7 +16,7 @@ urlpatterns = [
     path('', views.login_user, name="login"),
     path('logout/', views.logout_user, name="logout"),
         #se encarga de que funcione el login  
-     # path( 'accounts/', include('django.contrib.auth.urls'))
+      #path( 'accounts/', include('django.contrib.auth.urls'))
       #
     # path('', views.index, name="index"),
     # path('', TemplateView.as_view(template_name='index.html'), name="home"),

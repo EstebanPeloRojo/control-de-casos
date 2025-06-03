@@ -13,11 +13,17 @@ from django.views.generic import TemplateView
 urlpatterns = [
 
     path('', views.casosTemplate, name='formulario'),
+    
     path('prueba/', views.prueba, name='prueba'),
-    # path('crearcaso', views.CrearCaso, name="CrearCaso"),
+    
     path('crearcaso/', views.crearsolicitud_soporte, name="crearcaso" ),
     path('casos/', views.Casos.as_view(), name="casos"),
+    path('VerEstadosTicket/<int:ticket>', views.VerEstadosTicket, name="VerEstadosTicket" ),
+    path('actualizarEstadosTicket/', views.actualizarEstadosTicket, name="actualizarEstadosTicket" ),
     
+
+
+    # crearsolicitud_soporte
     #path('', views.index, name="index"),
     # path('', TemplateView.as_view(template_name='index.html'), name="home"),
     # path('', views.MainP.as_view(), name="main"),

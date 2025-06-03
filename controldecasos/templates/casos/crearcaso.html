@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 {% extends "index.html" %}
+=======
+
+>>>>>>> 752ff4cd67dc230db7ed155c86ff2f8bf2103122
 
 {% block container %}
 <form action="" method="post">
@@ -8,4 +12,62 @@
     <input type="submit" name="Enviar">
 </form>
 
+<<<<<<< HEAD
+=======
+<!-- Button trigger modal -->
+ 
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg ">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Peticion Nueva</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        {% comment %} method="post" action="crearcaso/"  {% endcomment %}
+        </div>
+        <form id="formCrearCaso">
+            {% comment %} action="{% url 'casos' %}" {% endcomment %}
+            <div class="modal-body">
+                {% csrf_token %}
+                <div class="col">
+                    {% comment %} <input type="text" class="w-50 form-control" name="incidencia" id="incidencia" placeholder="Incidencia"><br> {% endcomment %}
+                    <select class="w-50 form-select mb-3" name="incidencia" id="incidencia" placeholder="Incidencia" >
+                        <option value="" selected >-- Seleccione tipo de incidencia --</option>
+                        
+                        
+                        {% for tipocaso in tiposDeCasos %}
+                        <option value="{{ tipocaso.id }}">{{ tipocaso.nombre }}</option>
+                        {% endfor %}
+                        
+                        
+                    </select>
+                </div>
+                
+                <div class="col">
+                    <input type="number" class="w-50 form-control mb-3" name="ticketcustom" id="ticketcustom" placeholder="Digite N° ticket"> </input>
+                </div>
+
+                <div class="col">
+                    <textarea type="text" class="w-50 form-control" name="descripcion" id="descripcion" placeholder="Descripcion" rows="10" cols="50" ></textarea><br>
+                </div>
+                {% comment %} <select class="w-50 form-select" name="estado" id="estado"> 
+                    <option value="" disabled selected>Estado </option>
+                    <option value="pendiente">pendiente</option>
+                    <option value="En proceso">en proceso</option>
+                    <option value="resuelto">resuelto</option>
+                </select> <br> {% endcomment %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <input type="submit"  class="btn btn-outline-success btn-regus" value="Guardar">
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
+
+
+
+
+>>>>>>> 752ff4cd67dc230db7ed155c86ff2f8bf2103122
 {% endblock container %}
