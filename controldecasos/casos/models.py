@@ -47,6 +47,23 @@ class FeedbackTecnico(models.Model):
     id = models.AutoField(primary_key=True)
     descripcion = models.TextField(max_length=255)
     tecnico = models.CharField(max_length=255)
-    fecha_creacion = models.DateTimeField(auto_now_add=timezone.now)
+    fecha_creacion = models.DateTimeField(auto_now_add=timezone.now, null=True, blank=True)
     ticket = models.ForeignKey(SolicitudSoporte, on_delete=models.DO_NOTHING, related_name='feedback_tecnico')
+
+
+
+class HistorialEstado(models.Model):
+    id = models.AutoField(primary_key=True)
+    solicitud_soporte = models.ForeignKey(SolicitudSoporte, on_delete=models.DO_NOTHING, related_name='historial_estado')
+    estado = models.CharField(max_length=20)
+    # estado_nuevo = models.CharField(max_length=20)
+    fecha_cambio = models.DateTimeField(auto_now_add=timezone.now)
+    comentario = models.TextField(max_length=255, blank=True, null=True, verbose_name="feedback tecnico")
+
+    class Meta:
+        verbose_name = 'Historial de Estado'
+        verbose_name_plural = 'Historial de Estados'
+
+    def __str__(self):
+        return f"{self.solicitud_soporte.ticket} - {self.estado}"
 

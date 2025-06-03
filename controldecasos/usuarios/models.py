@@ -17,3 +17,13 @@ class TipoUser(models.Model):
 
         def __str__(self):
             return self.nombre
+
+class DatosUsuario(models.Model):
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE, related_name='datos_usuario')
+    doc_identidad = models.CharField(max_length=20, unique=True)
+    cargo = models.CharField(max_length=100, blank=False, null=False)
+    
+    
+
+
+   
