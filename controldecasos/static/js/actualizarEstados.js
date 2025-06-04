@@ -1,7 +1,10 @@
 const offcanvasBody = document.querySelector("#offcanvasBody")
 const offcanvasExample = document.querySelector("#offcanvasExample")
 const estadoCaso  = document.querySelectorAll("#estadoCaso")
-const historicoTable = document.querySelector("#historicoTable")
+const labelHistorico = document.querySelector("#labelHistorico")
+const historicoBody = document.querySelector("#historicoBody")
+
+
 
 function ActualizarEstadoHtml(ticket)
 {
@@ -47,8 +50,19 @@ function seguimientoCasoHtml(registros)
 
     console.log(html)
     return html
+
+    
 }
 
+//const offcanvasCerrar =  document.querySelector("#offcanvasCerrar")
+
+//const removeSeguimiento = () =>{
+//            labelHistorico.remove();
+//        }
+
+//offcanvasCerrar.ddEventListener('click', () => {
+ //           removeSeguimiento()
+ //       })
 
 estadoCaso.forEach(element => {
     element.addEventListener('click', async function () {
@@ -69,8 +83,8 @@ estadoCaso.forEach(element => {
 
 
         // insertar html antes del div container
-        historicoTable.insertAdjacentHTML('beforeend', seguimientoCasoHtml(data));
-        offcanvasBody.insertAdjacentHTML('beforeend', ActualizarEstadoHtml(numeroTicket));
+        historicoBody.insertAdjacentHTML('beforeend', seguimientoCasoHtml(data));
+        labelHistorico.insertAdjacentHTML('beforebegin', ActualizarEstadoHtml(numeroTicket));
 
         // llamamos el container del modal desde el dom
         const OffCanvasjs = document.querySelector("#offcanvasBody")
