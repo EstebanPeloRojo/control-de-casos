@@ -28,10 +28,7 @@ formCrearCaso.addEventListener("submit", async (e) => {
         return;
     }
 
-    if (ticketCustom == '') {
-        await swalErr("Debe ingresar un numero Ticket.");
-        return;
-    }
+    
 
 
     // const data = Object.fromEntries(formData.entries());

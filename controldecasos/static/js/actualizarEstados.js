@@ -1,6 +1,7 @@
 const offcanvasBody = document.querySelector("#offcanvasBody")
 const offcanvasExample = document.querySelector("#offcanvasExample")
 const estadoCaso  = document.querySelectorAll("#estadoCaso")
+const historicoTable = document.querySelector("#historicoTable")
 
 function ActualizarEstadoHtml(ticket)
 {
@@ -27,9 +28,24 @@ function ActualizarEstadoHtml(ticket)
         </form>
         
     </div>
-   
     `
+    return html
+}
+
+function seguimientoCasoHtml(registros)
+{
     
+    let html = ''
+    
+    registros.forEach(registro => html += `
+    <tr>
+          <td>${formatearFecha(registro.fecha_cambio)}</td>
+          <td>${registro.estado}</td>
+          <td>${registro.comentario}</td>
+    </tr>
+    `)
+
+    console.log(html)
     return html
 }
 
@@ -42,15 +58,18 @@ estadoCaso.forEach(element => {
 
         const numeroTicket = this.parentElement.parentElement.children[0].innerHTML
 
-       // const url = `http://127.0.0.1:8000/casos/casos/?id=${numeroTicket}`
+       const url = `http://127.0.0.1:8000/casos/VerEstadosTicket/1`
 
-       // const req = await fetch(url)
-       // const data = await req.json();
+       const req = await fetch(url)
+       const data = await req.json();
 
-       // console.log(data)
+       console.log(data)
+
+       
 
 
         // insertar html antes del div container
+        historicoTable.insertAdjacentHTML('beforeend', seguimientoCasoHtml(data));
         offcanvasBody.insertAdjacentHTML('beforeend', ActualizarEstadoHtml(numeroTicket));
 
         // llamamos el container del modal desde el dom

@@ -1,19 +1,7 @@
-<<<<<<< HEAD
-{% extends "index.html" %}
-=======
-
->>>>>>> 752ff4cd67dc230db7ed155c86ff2f8bf2103122
 
 {% block container %}
-<form action="" method="post">
-    <input type="text" placeholder="Nombre">
-    <input type="text" placeholder="Cedula">
-    <input type="text" placeholder="Correo">
-    <input type="submit" name="Enviar">
-</form>
 
-<<<<<<< HEAD
-=======
+
 <!-- Button trigger modal -->
  
 
@@ -33,29 +21,26 @@
                     {% comment %} <input type="text" class="w-50 form-control" name="incidencia" id="incidencia" placeholder="Incidencia"><br> {% endcomment %}
                     <select class="w-50 form-select mb-3" name="incidencia" id="incidencia" placeholder="Incidencia" >
                         <option value="" selected >-- Seleccione tipo de incidencia --</option>
-                        
-                        
                         {% for tipocaso in tiposDeCasos %}
                         <option value="{{ tipocaso.id }}">{{ tipocaso.nombre }}</option>
                         {% endfor %}
-                        
-                        
                     </select>
                 </div>
-                
+                {% comment %}
                 <div class="col">
                     <input type="number" class="w-50 form-control mb-3" name="ticketcustom" id="ticketcustom" placeholder="Digite N° ticket"> </input>
                 </div>
-
+                {% endcomment %}
                 <div class="col">
                     <textarea type="text" class="w-50 form-control" name="descripcion" id="descripcion" placeholder="Descripcion" rows="10" cols="50" ></textarea><br>
                 </div>
-                {% comment %} <select class="w-50 form-select" name="estado" id="estado"> 
+                {% comment %} <select class="w-50 form-select" name="estado" id="estado">
                     <option value="" disabled selected>Estado </option>
                     <option value="pendiente">pendiente</option>
                     <option value="En proceso">en proceso</option>
                     <option value="resuelto">resuelto</option>
-                </select> <br> {% endcomment %}
+                </select> <br>
+                {% endcomment %}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -69,5 +54,4 @@
 
 
 
->>>>>>> 752ff4cd67dc230db7ed155c86ff2f8bf2103122
 {% endblock container %}

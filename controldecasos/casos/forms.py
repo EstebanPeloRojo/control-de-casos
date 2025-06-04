@@ -8,7 +8,7 @@ class SolicitudSoporteForm(forms.ModelForm):
         fields = ( 
                   
                   'incidencia',
-                  'ticket_custom',
+                  
                   'descripcion',
                 #   'estado'          
                   )

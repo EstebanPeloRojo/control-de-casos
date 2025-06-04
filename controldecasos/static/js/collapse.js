@@ -1,6 +1,8 @@
 const contenedor = document.querySelector("#container")
 const collapseBoton = document.querySelectorAll("#seguimientoCaso")
 
+var toggle = false;
+
 function collapseHtml(titulo,data)
 {
     const collapsecaso = `
@@ -25,6 +27,8 @@ function collapseHtml(titulo,data)
             <div class="col">
               <p> Estado: ${data.estado} </p>
             </div>
+              <button type="button" id="cerrar" class="btn-close" aria-label="Close"></button>
+            </button>
         </div
         </td>
     </tr>
@@ -36,6 +40,15 @@ function collapseHtml(titulo,data)
 
 collapseBoton.forEach(element => {
     element.addEventListener('click', async function () {
+
+        toggle = !toggle;
+
+        if (toggle == false){
+          document.querySelector("#collapseExample").remove()
+          return
+        }
+        
+
         console.log(this)
         console.log(this.parentElement.parentElement.children[0].innerHTML)
         const filaTabla = this.parentElement.parentElement
@@ -61,7 +74,7 @@ collapseBoton.forEach(element => {
         }
 
         
-        //const closeBtnButton = document.querySelector("#seguimientoCaso")
+        const cerrarButton = document.querySelector("#cerrar")
 
 
         let myCollapse = new bootstrap.Collapse(collapsejs,{
@@ -76,7 +89,7 @@ collapseBoton.forEach(element => {
         
 
         // evento para cerrar el modal con click
-        closeBtnButton.addEventListener('click', () => {
+        cerrarButton.addEventListener('click', () => {
             removeCollapse()
         })
 
