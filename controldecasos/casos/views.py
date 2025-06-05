@@ -133,12 +133,12 @@ def crearsolicitud_soporte(request):
                 estado=dataRegistro['estado'],
                # comentario_usuario=dataRegistro['comentario_usuario'],
                 comentario="Solicitud creada",
+                usuario = request.user
             )
-            def perform_create(self, serializer):
-                # Más directo - evita problemas de contexto
-                serializer.save(usuario=self.request.user.username)
-            #historico.usuario = request.user
+            
             historico.save()
+
+            console.log(historico)
             
             return JsonResponse({"ok" : "incidencia creada"}, status=201)
             
@@ -226,7 +226,7 @@ def actualizarEstadosTicket(request):
     # )
     # creacionHistorial.save()
     
-    serializer = HistorialEstadoSerializer(data=request.data, many=False)
+    serializer = HistorialEstadoSerializer(data=request.data,context={'request': request} ,many=False)
     
     if serializer.is_valid():
         console.log("si es valido")
