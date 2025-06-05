@@ -53,6 +53,19 @@ def prueba(request):
     #pass
     return render(request, 'casos/prueba.html',)
 
+@login_required
+def CasosActuales(request):
+    peticion = SolicitudSoporte.objects.all() 
+
+    tiposDeCasos = TipoIncidencia.objects.all()
+    context = {
+        "parametro": peticion,
+        "tiposDeCasos": tiposDeCasos,
+        # "parametro2": vercaso,
+    }
+    
+    
+    return render(request, "casos/casosactuales.html", context,)
 
 def formulario(request):
     if request.method == 'POST':

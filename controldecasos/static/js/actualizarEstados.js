@@ -41,13 +41,6 @@ function seguimientoCasoHtml(registros)
     let html = ''
     
     registros.forEach(registro => html += `
-<<<<<<< HEAD
-    <tr>
-          <td>${formatearFecha(registro.fecha_cambio)}</td>
-          <td>${registro.estado}</td>
-          <td>${registro.comentario}</td>
-          <td>${registro.usuario}</td>
-=======
     
     <tr class="collapse" id="collapseExample">
         <td colspan="6" class="card-body">
@@ -69,7 +62,6 @@ function seguimientoCasoHtml(registros)
             </button>
         </div
         </td>
->>>>>>> 9bc73a5c59fc7a7b4eff1d40da218b926db7f79a
     </tr>
     
     `)

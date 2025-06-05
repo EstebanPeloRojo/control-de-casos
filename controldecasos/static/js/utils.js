@@ -9,3 +9,5 @@ function formatearFecha(fechaISO) {
 
   return `${dia}/${mes}/${año} ${horas}:${minutos}`;
 }
+
+

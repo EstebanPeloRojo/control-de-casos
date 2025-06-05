@@ -18,6 +18,7 @@ urlpatterns = [
     
     path('crearcaso/', views.crearsolicitud_soporte, name="crearcaso" ),
     path('casos/', views.Casos.as_view(), name="casos"),
+    path('casosactuales', views.CasosActuales, name="casosactuales"),
     path('VerEstadosTicket/<int:ticket>', views.VerEstadosTicket, name="VerEstadosTicket" ),
     path('actualizarEstadosTicket/', views.actualizarEstadosTicket, name="actualizarEstadosTicket" ),
     

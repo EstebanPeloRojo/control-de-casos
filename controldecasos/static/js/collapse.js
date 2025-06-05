@@ -79,8 +79,8 @@ collapseBoton.forEach(element => {
 
         //filaTabla.insertAdjacentHTML('afterend', htmlCompleto);
 
-         filaTabla.insertAdjacentHTML('afterend', collapseHtml('Incidencia', data));
-        // filaTabla.insertAdjacentHTML('afterend', seguimientoCasoHtml(data1));
+         //filaTabla.insertAdjacentHTML('afterend', collapseHtml('Incidencia', data));
+         filaTabla.insertAdjacentHTML('afterend', seguimientoCasoHtml(data1));
         
         // llamamos el container del modal desde el dom
         const collapsejs = document.querySelector("#collapseExample")
