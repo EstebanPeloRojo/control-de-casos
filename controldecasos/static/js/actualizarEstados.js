@@ -41,11 +41,29 @@ function seguimientoCasoHtml(registros)
     let html = ''
     
     registros.forEach(registro => html += `
-    <tr>
-          <td>${formatearFecha(registro.fecha_cambio)}</td>
-          <td>${registro.estado}</td>
-          <td>${registro.comentario}</td>
+    
+    <tr class="collapse" id="collapseExample">
+        <td colspan="6" class="card-body">
+            <div class="row align-items-start">
+            <div class="col">
+              <p>Fecha: ${formatearFecha(registro.fecha_cambio)}</p>
+            </div>
+            <div class="col">
+              <p> Estado: ${registro.estado}</p>
+            </div>
+            <div class="col">
+              <p> Observaciones:${registro.comentario}</p>
+            </div>
+            <div class="col">
+              <p> Publicado por: ${registro.usuario} </p>
+            </div>
+           
+              <button type="button" id="cerrar" class="btn-close" aria-label="Close"></button>
+            </button>
+        </div
+        </td>
     </tr>
+    
     `)
 
     console.log(html)
@@ -53,6 +71,8 @@ function seguimientoCasoHtml(registros)
 
     
 }
+
+
 
 //const offcanvasCerrar =  document.querySelector("#offcanvasCerrar")
 

@@ -17,7 +17,7 @@ formCrearCaso.addEventListener("submit", async (e) => {
 
     const incidencia = formData.get("incidencia");
     const descripcion = formData.get("descripcion");
-    const ticketCustom = formData.get("ticket_custom");
+    //const ticketCustom = formData.get("ticket_custom");
     if (incidencia == '') {
         await swalErr("Debe seleccionar una incidencia.");
         return;

@@ -21,4 +21,10 @@ class HistorialEstadoSerializer(serializers.ModelSerializer):
             'solicitud_soporte',
             'estado',
             'comentario',
+            
         ]
+    
+    def create(self, validated_data):
+        # Obtener el usuario del contexto de la request
+        validated_data['usuario'] = self.context['request'].user
+        return super().create(validated_data)
