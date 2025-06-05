@@ -61,7 +61,7 @@ class HistorialEstado(models.Model):
     # estado_nuevo = models.CharField(max_length=20)
     fecha_cambio = models.DateTimeField(auto_now_add=timezone.now)
     comentario = models.TextField(max_length=255, blank=True, null=True, verbose_name="feedback tecnico")
-
+    usuario =models.CharField(max_length=200)
     class Meta:
         verbose_name = 'Historial de Estado'
         verbose_name_plural = 'Historial de Estados'

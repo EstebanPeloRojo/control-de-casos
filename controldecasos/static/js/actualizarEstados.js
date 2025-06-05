@@ -45,6 +45,7 @@ function seguimientoCasoHtml(registros)
           <td>${formatearFecha(registro.fecha_cambio)}</td>
           <td>${registro.estado}</td>
           <td>${registro.comentario}</td>
+          <td>${registro.usuario}</td>
     </tr>
     `)
 
@@ -72,7 +73,7 @@ estadoCaso.forEach(element => {
 
         const numeroTicket = this.parentElement.parentElement.children[0].innerHTML
 
-       const url = `http://127.0.0.1:8000/casos/VerEstadosTicket/1`
+       const url = `http://127.0.0.1:8000/casos/VerEstadosTicket/2`
 
        const req = await fetch(url)
        const data = await req.json();

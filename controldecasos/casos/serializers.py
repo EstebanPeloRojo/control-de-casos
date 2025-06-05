@@ -21,4 +21,6 @@ class HistorialEstadoSerializer(serializers.ModelSerializer):
             'solicitud_soporte',
             'estado',
             'comentario',
+            'usuario',
         ]
+    

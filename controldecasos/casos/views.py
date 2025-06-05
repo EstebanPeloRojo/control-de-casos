@@ -131,8 +131,13 @@ def crearsolicitud_soporte(request):
             historico = HistorialEstado(
                 solicitud_soporte=solicitudDeSoporte,
                 estado=dataRegistro['estado'],
+               # comentario_usuario=dataRegistro['comentario_usuario'],
                 comentario="Solicitud creada",
             )
+            def perform_create(self, serializer):
+                # Más directo - evita problemas de contexto
+                serializer.save(usuario=self.request.user.username)
+            #historico.usuario = request.user
             historico.save()
             
             return JsonResponse({"ok" : "incidencia creada"}, status=201)
@@ -200,7 +205,11 @@ def actualizarEstadosTicket(request):
     
     feedback = request.data.get('comentario')
     console.log(feedback)
-
+    
+    usuarioenvia = request.data.get("comentario_usuario")
+    console.log(usuarioenvia)
+    
+    
     #se obtiene el ticket de la base de datos
     obtenTicket = SolicitudSoporte.objects.filter(ticket=ticketForm)
     # console.log(obtenTicket)
