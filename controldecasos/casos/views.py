@@ -32,6 +32,8 @@ console=Console()
 
 
 # Create your views here.
+
+# renderiza el template casos.html y los datos de la tabla casos_solicitudsoporte
 @login_required
 def casosTemplate(request):
     # vercaso = SolicitudSoporte.objects.get(id=0)
@@ -46,6 +48,7 @@ def casosTemplate(request):
    
     return render(request, "casos/casos.html", context, )
 
+# renderiza el formulario para la creacion del caso
 def CrearCaso(request):
     return render(request, 'casos/CrearCaso.html')
 
@@ -53,6 +56,7 @@ def prueba(request):
     #pass
     return render(request, 'casos/prueba.html',)
 
+# renderiza el template casosactuales para ver la interfaz de los casos cuyos estados sean "Pendiente o en proceso"
 @login_required
 def CasosActuales(request):
     peticion = SolicitudSoporte.objects.all() 
@@ -67,6 +71,23 @@ def CasosActuales(request):
     
     return render(request, "casos/casosactuales.html", context,)
 
+#funcion que renderisa el template casohistorico.html y los datos de la tabla casos_solicitudsoporte
+@login_required
+def CasosHistorico(request):
+    peticion = SolicitudSoporte.objects.all() 
+    estados = SolicitudSoporte.objects.filter(estado='resuelto')
+    tiposDeCasos = TipoIncidencia.objects.all()
+    context = {
+        "parametro": peticion,
+        "tiposDeCasos": tiposDeCasos,
+        "estados": estados,
+        # "parametro2": vercaso,
+    }
+    
+    
+    return render(request, "casos/casohistorico.html", context,)
+
+#funcion para realizar el 
 def formulario(request):
     if request.method == 'POST':
             form = Usuarioforms(request.POST)
@@ -122,6 +143,8 @@ class Casos(APIView):
         return Response({"ok" : "deleted"}, status=status.HTTP_204_NO_CONTENT)
                     
 
+#Funcion para guardar datos del formulario nueva peticion, se guardan los datos de la incidencia en la tabla casos_solicitudsoporte
+#y al mismo tiempo guarda el primer historial de los estados de la incidencia
 @login_required
 def crearsolicitud_soporte(request):
     console.log(request.POST)
@@ -140,7 +163,8 @@ def crearsolicitud_soporte(request):
 
             solicitudDeSoporte = SolicitudSoporte.objects.get(ticket=dataRegistro['ticket'])
             console.log(solicitudDeSoporte)
-
+            
+            #en esta variable se obtienen los datos guardados de la incidencia    
             historico = HistorialEstado(
                 solicitud_soporte=solicitudDeSoporte,
                 estado=dataRegistro['estado'],
@@ -148,7 +172,7 @@ def crearsolicitud_soporte(request):
                 comentario="Solicitud creada",
                 usuario = request.user
             )
-            
+            # se realiza el guardado en la tabla casos_HistorialEstado
             historico.save()
 
             console.log(historico)

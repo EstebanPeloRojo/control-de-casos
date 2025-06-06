@@ -17,7 +17,7 @@ formCrearCaso.addEventListener("submit", async (e) => {
 
     const incidencia = formData.get("incidencia");
     const descripcion = formData.get("descripcion");
-    //const ticketCustom = formData.get("ticket_custom");
+    const ticket_tilena = formData.get("ticket_tilena");
     if (incidencia == '') {
         await swalErr("Debe seleccionar una incidencia.");
         return;
@@ -25,6 +25,11 @@ formCrearCaso.addEventListener("submit", async (e) => {
 
     if (descripcion == '') {
         await swalErr("La descripción debe tener al menos 10 caracteres.");
+        return;
+    }
+
+    if (ticket_tilena == '') {
+        await swalErr("Debe digitar el ticket.");
         return;
     }
 

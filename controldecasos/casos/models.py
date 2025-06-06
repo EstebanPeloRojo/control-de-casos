@@ -5,11 +5,12 @@ from django.db.models import DO_NOTHING
 #modelo de la tabla de las peticiones
 
 
+
+# modelo de datos de los tipos de incidencias
 class TipoIncidencia(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=100, unique=True)
-    # descripcion = models.TextField(max_length=255, blank=True, null=True)
-
+    
     class Meta:
         verbose_name = 'Tipo de Incidencia'
         verbose_name_plural = 'Tipo de Incidencias'
@@ -20,10 +21,10 @@ class TipoIncidencia(models.Model):
 
 
 
-
+#Modelo de datos de las incidencias que se crearan 
 class SolicitudSoporte(models.Model): 
+    ticket_tilena = models.CharField(max_length=100)
     ticket = models.AutoField(primary_key=True)
-    
     caso_usuario =models.CharField(max_length=200)
     incidencia = models.ForeignKey(TipoIncidencia, on_delete=DO_NOTHING, related_name='tipo_incidencia')
     descripcion = models.TextField(max_length=255)
@@ -45,15 +46,10 @@ class SolicitudSoporte(models.Model):
     
     
 
-class FeedbackTecnico(models.Model):
-    id = models.AutoField(primary_key=True)
-    descripcion = models.TextField(max_length=255)
-    tecnico = models.CharField(max_length=255)
-    fecha_creacion = models.DateTimeField(auto_now_add=timezone.now, null=True, blank=True)
-    ticket = models.ForeignKey(SolicitudSoporte, on_delete=models.DO_NOTHING, related_name='feedback_tecnico')
 
 
-
+#Modelo de la base de datos donde se guardan los avances de las incidencias incluyendo el estado en el que se encuentra
+#comentarios con respecto al caso y la fecha en el que se publica el avance 
 class HistorialEstado(models.Model):
     id = models.AutoField(primary_key=True)
     solicitud_soporte = models.ForeignKey(SolicitudSoporte, on_delete=models.DO_NOTHING, related_name='historial_estado')

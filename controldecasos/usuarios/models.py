@@ -9,7 +9,9 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 class TipoUser(models.Model):
         USER_CHOICES = [
             ('1','Tecnico'),
-            ('2','Cliente')
+            ('2','operativo'),
+            ("3","administrador"),
+            ("4","directivo"),
         ]
         id = models.AutoField(primary_key=True)
         usuario = models.ForeignKey(User, verbose_name=(""), on_delete=models.CASCADE)

@@ -10,7 +10,7 @@ function collapseHtml(titulo,data)
         <td colspan="6" class="card-body">
             <div class="row align-items-start">
             <div class="col">
-              <p>Ticket: ${data.ticket}</p>
+              <p>ID: ${data.ticket}</p>
             </div>
             <div class="col">
               <p> Solicitado por: ${data.caso_usuario}</p>
@@ -20,6 +20,9 @@ function collapseHtml(titulo,data)
             </div>
             <div class="col">
               <p> Incidencia: ${data.incidencia_id} </p>
+            </div>
+            <div class="col">
+              <p> Ticket: ${data.ticket_tilena} </p>
             </div>
             <div class="col">
               <p> Fecha: ${data.creado_en}</p>
@@ -79,8 +82,8 @@ collapseBoton.forEach(element => {
 
         //filaTabla.insertAdjacentHTML('afterend', htmlCompleto);
 
-         //filaTabla.insertAdjacentHTML('afterend', collapseHtml('Incidencia', data));
-         filaTabla.insertAdjacentHTML('afterend', seguimientoCasoHtml(data1));
+        filaTabla.insertAdjacentHTML('afterend', collapseHtml('Incidencia', data));
+        // filaTabla.insertAdjacentHTML('afterend', seguimientoCasoHtml(data1));
         
         // llamamos el container del modal desde el dom
         const collapsejs = document.querySelector("#collapseExample")
