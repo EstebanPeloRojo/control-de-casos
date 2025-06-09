@@ -52,6 +52,8 @@ def casosTemplate(request):
 def CrearCaso(request):
     return render(request, 'casos/CrearCaso.html')
 
+
+
 def prueba(request):
     #pass
     return render(request, 'casos/prueba.html',)

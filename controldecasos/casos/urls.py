@@ -22,7 +22,7 @@ urlpatterns = [
     path('casoshistorico', views.CasosHistorico, name="casoshistorico"),
     path('VerEstadosTicket/<int:ticket>', views.VerEstadosTicket, name="VerEstadosTicket" ),
     path('actualizarEstadosTicket/', views.actualizarEstadosTicket, name="actualizarEstadosTicket" ),
-    
+   
 
 
     # crearsolicitud_soporte

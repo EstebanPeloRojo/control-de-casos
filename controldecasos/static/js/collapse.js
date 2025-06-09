@@ -66,7 +66,7 @@ collapseBoton.forEach(element => {
         console.log(data)
 
 
-        const url1 = `http://127.0.0.1:8000/casos/VerEstadosTicket/1`
+        const url1 = `http://127.0.0.1:8000/casos/VerEstadosTicket/42`
 
        const req1 = await fetch(url1)
        const data1 = await req1.json();
@@ -83,7 +83,7 @@ collapseBoton.forEach(element => {
         //filaTabla.insertAdjacentHTML('afterend', htmlCompleto);
 
         filaTabla.insertAdjacentHTML('afterend', collapseHtml('Incidencia', data));
-        // filaTabla.insertAdjacentHTML('afterend', seguimientoCasoHtml(data1));
+        filaTabla.insertAdjacentHTML('afterend', seguimientoCasoHtml(data1));
         
         // llamamos el container del modal desde el dom
         const collapsejs = document.querySelector("#collapseExample")
